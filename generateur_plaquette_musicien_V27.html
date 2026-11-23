@@ -1,0 +1,438 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ma plaquette musicien — V27</title><style>
+:root{font-family:Arial,Helvetica,sans-serif;color:#20252b;background:#f4f5f6}*{box-sizing:border-box}body{margin:0}header{padding:24px 5%;background:#252a30;color:#fff}h1{margin:0;font-size:25px}header p{margin:8px 0 0;color:#e3e6e8}main{display:grid;grid-template-columns:minmax(280px,410px) minmax(300px,1fr);gap:25px;max-width:1250px;margin:28px auto;padding:0 18px}.panel,.sheet{background:white;border-radius:12px;padding:25px;box-shadow:0 3px 18px #00000010}label{display:block;font-weight:700;font-size:13px;margin:13px 0 5px}input,textarea{width:100%;padding:10px;border:1px solid #c8cdd1;border-radius:6px;font:inherit}textarea{min-height:75px;resize:vertical}button{border:0;border-radius:7px;padding:12px 17px;background:#252a30;color:white;cursor:pointer;font-weight:bold;margin-top:18px}.hint{font-size:12px;color:#59636b;line-height:1.5}.sheet{min-height:500px;overflow-wrap:anywhere;color:#20252b}.sheet h2{font-size:34px;line-height:1.16;letter-spacing:-.025em;margin:14px 0 9px}.tag{color:#6d737b;font-weight:700;letter-spacing:.075em;text-transform:uppercase;font-size:11px}.photo-frame{display:none;justify-content:center;align-items:center;margin:0 0 18px;background:transparent}.photo-frame img{display:block;width:auto;height:auto;max-width:100%;max-height:350px;object-fit:contain;border-radius:6px}.photo-frame.has-photo{display:flex}.social-icons{display:flex;gap:15px;flex-wrap:wrap;align-items:center;margin-top:12px}.social-icons a{display:inline-flex;align-items:center;gap:5px;text-decoration:none;color:#252a30;font-size:12px;font-weight:600}.social-icons svg{width:24px;height:24px;display:block}.optional{font-size:11px;color:#667}.sheet a{text-decoration:none}.description{white-space:pre-wrap;line-height:1.6}.video-preview{margin-top:22px}.video-preview[hidden]{display:none!important}.video-preview a{display:block;color:#20252b;text-decoration:none;max-width:500px}.video-art{position:relative;aspect-ratio:16/9;background:#e9eaec;overflow:hidden;border-radius:7px}.video-art img{display:block;width:100%;height:100%;object-fit:cover}.video-art img[hidden]{display:none}.play-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#ed1b24;color:white;border-radius:12px;font-size:23px;line-height:1;padding:15px 20px;box-shadow:0 2px 12px #0008}.contacts{margin-top:23px;border-top:1px solid #d9dce0;padding-top:17px;line-height:1.8}.contacts a{color:#252a30}.sheet{border:1px solid #e0e3e7}.contacts .social-icons{gap:20px;margin-bottom:13px}.contacts #outEmail{margin-bottom:10px}.contacts strong{font-size:13px;letter-spacing:.02em}.contacts[hidden],.tag[hidden],.sheet p[hidden],.sheet h2[hidden]{display:none!important}small{font-size:12px}@media(max-width:850px){main{grid-template-columns:1fr}main>section:nth-child(2){position:static;max-height:none;overflow:visible}.sheet{min-height:0}}@media print{@page{size:A4;margin:12mm}header,.panel,.hint,.print-button{display:none!important}body{background:white}main{display:block;margin:0;padding:0}.sheet{box-shadow:none;border-radius:0;min-height:0;padding:6px;break-inside:avoid}.photo-frame img{max-height:65mm}.photo-frame,.video-preview{break-inside:avoid}.video-art{max-height:54mm;aspect-ratio:16/9}.sheet h2{font-size:27px}a{color:inherit;text-decoration:none}}
+
+.customize{margin-top:22px;padding-top:12px;border-top:1px solid #e0e3e7}.customize h3{font-size:16px;margin:8px 0}.customize select,.customize input[type=color]{width:100%;padding:9px;border:1px solid #c8cdd1;border-radius:6px;background:white}.customize input[type=color]{height:43px;padding:4px}.customize .twocol{display:grid;grid-template-columns:1fr 1fr;gap:10px}main>section:nth-child(2){position:sticky;top:12px;align-self:start;max-height:calc(100vh - 24px);overflow:auto}.inline-tools{background:#f5f7f9;border:1px solid #e1e5e9;border-radius:9px;padding:11px;margin:8px 0 16px}.tools-label{display:block;font-size:13px;font-weight:700;margin-bottom:8px}.tool-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.tool-grid label{margin:0;font-size:12px}.tool-grid select,.tool-grid input[type=color]{display:block;width:100%;height:38px;margin-top:4px;padding:5px;border:1px solid #c8cdd1;border-radius:6px;background:white}.format-buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.format-buttons button{font-size:12px;padding:9px 4px;margin:0}.sheet.theme-dots{background-image:radial-gradient(#0000000c 1px,transparent 1px);background-size:15px 15px}.sheet.theme-lines{background-image:repeating-linear-gradient(135deg,transparent 0,transparent 15px,#00000008 16px,#00000008 17px)}
+
+.preset-gallery{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:12px 0 18px}.preset{margin:0;padding:5px 3px 7px;background:white;color:#343b43;border:2px solid #e0e4e9;border-radius:9px;font-size:11px;min-width:0}.preset.active{border-color:#2876d0;box-shadow:0 0 0 2px #2876d022}.swatch{display:block;height:43px;border-radius:5px;margin-bottom:5px;border:1px solid #00000012}.swatch.clean{background:#fff}.swatch.sand{background:#f3e6ce}.swatch.night{background:linear-gradient(135deg,#131c30,#455472)}.swatch.sunset{background:linear-gradient(135deg,#ffe4c8,#f5a8a3)}.swatch.ocean{background:linear-gradient(135deg,#d6f2f0,#8ec9e6)}.swatch.forest{background:linear-gradient(135deg,#d7e6d5,#9db9a3)}.swatch.paper{background:repeating-linear-gradient(0deg,#f9f4e9 0 6px,#eee6d6 7px)}.swatch.gridstyle{background-color:#f6f7fa;background-image:linear-gradient(#aab3c544 1px,transparent 1px),linear-gradient(90deg,#aab3c544 1px,transparent 1px);background-size:12px 12px}.swatch.dotstyle{background-color:#fff1e8;background-image:radial-gradient(#edb8aa 2px,transparent 3px);background-size:13px 13px}.swatch.aurora{background:linear-gradient(135deg,#c9f3ed,#d5c4f3,#f9d2e5)}.sheet.theme-grid{background-image:linear-gradient(#71829a1a 1px,transparent 1px),linear-gradient(90deg,#71829a1a 1px,transparent 1px);background-size:22px 22px}@media(max-width:550px){.preset-gallery{grid-template-columns:repeat(5,minmax(0,1fr))}}
+
+.editor-head{background:#fff;border:1px solid #e0e3e7;border-radius:10px;padding:12px;margin-bottom:10px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}.editor-head span{font-size:12px;color:#667085;flex:1}.editor-head button{margin:0;padding:8px 10px;font-size:12px}.sheet{position:relative}.layout-guide{display:none;position:absolute;top:0;bottom:0;left:50%;width:0;border-left:2px dashed #cf38e4;pointer-events:none;z-index:10}.sheet.drag-active .layout-guide{display:block}.editable-block{cursor:grab;user-select:none}.editable-block:active{cursor:grabbing}.editable-block .description{user-select:text;cursor:text}.editable-block{position:relative;border:1px dashed transparent;border-radius:5px;padding:4px;margin:0 -4px 4px}.editable-block:hover,.editable-block:focus-within{border-color:#a5b4fc}.editable-block.is-dragging{opacity:.4}.editable-block.drop-before{border-top:3px solid #b12ed3}.editable-block.drop-after{border-bottom:3px solid #b12ed3}.block-toolbar{display:flex;justify-content:flex-end;align-items:center;gap:5px;min-height:23px;margin-bottom:2px;opacity:.5}.editable-block:hover .block-toolbar,.editable-block:focus-within .block-toolbar{opacity:1}.block-toolbar button{padding:3px 7px;font-size:12px;margin:0;border-radius:4px;background:#e7e9ef;color:#252a30}.block-toolbar .drag-handle{cursor:grab;touch-action:none}.editable-block.is-hidden>.block-content{display:none!important}.editable-block.is-hidden{opacity:.55;background:#f2f3f5}.editable-block.is-hidden .block-toolbar{opacity:1}.block-label{font-size:11px;color:#64748b;margin-right:auto}.logo-preview{text-align:center}.logo-preview img{max-width:100%;max-height:180px;object-fit:contain}.logo-preview[hidden]{display:none}.logo-size-row{display:flex;align-items:center;gap:10px}.logo-size-row input{flex:1}.sheet .editable-block:has(.photo-frame:not(.has-photo)) .block-content{display:none}.sheet .editable-block:has(.video-preview[hidden]) .block-content{display:none}@media print{.editor-head,.block-toolbar,.layout-guide{display:none!important}.editable-block{border:0!important;padding:0!important;margin:0!important}.editable-block.is-hidden{display:none!important}}
+
+/* V16 : édition discrète, aperçu propre */
+.editor-head{padding:9px 13px}.editor-head span{font-size:11px}
+.editable-block{padding:0;margin:0;border:0;position:relative;min-height:0}
+.editable-block:hover{outline:1px dashed #b7c6dc;outline-offset:5px}
+.editable-block.selected{outline:2px solid #647eea;outline-offset:5px}
+.editable-block.is-hidden{display:none!important}
+.editable-block.is-empty{display:none!important}
+.editable-block .block-toolbar{display:none!important}
+.sheet .editable-block:has(.photo-frame:not(.has-photo)),.sheet .editable-block:has(.video-preview[hidden]){display:none}
+.sheet .editable-block:has(> .block-content > [hidden]){display:none}
+.sheet .editable-block.drop-before{border-top:0;box-shadow:0 -3px 0 #b12ed3}
+.sheet .editable-block.drop-after{border-bottom:0;box-shadow:0 3px 0 #b12ed3}
+.floating-tools{display:none;position:sticky;top:0;z-index:30;background:#fff;border:1px solid #cfd7e2;border-radius:8px;box-shadow:0 3px 15px #0002;padding:8px;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.floating-tools.visible{display:flex}.floating-tools strong{font-size:12px;margin-right:auto}.floating-tools button{margin:0;padding:7px 9px;font-size:12px;border-radius:5px}.floating-tools .drag-handle{cursor:grab}
+.sheet.drag-active .layout-guide{display:block}
+@media print{.floating-tools{display:none!important}}
+
+/* V18 : interface plus légère et centrée sur la composition */
+.preset-gallery .preset:nth-child(n+6){display:none}
+.editor-head{font-size:12px}.floating-tools{gap:5px}.floating-tools button{min-width:32px}
+.editable-block:not(.selected){outline:0!important}.editable-block.selected{outline:1px dashed #7297d2!important}
+
+/* V19 : aperçu épuré, alignements réels et déplacement direct */
+.sheet .editable-block[data-block="videoPreview"] .video-preview a{width:min(100%,480px);max-width:480px}
+.sheet .editable-block[data-block="videoPreview"][data-align="center"] .video-preview a{margin-left:auto;margin-right:auto}
+.sheet .editable-block[data-block="videoPreview"][data-align="right"] .video-preview a{margin-left:auto;margin-right:0}
+.sheet .editable-block[data-block="videoPreview"][data-align="left"] .video-preview a{margin-left:0;margin-right:auto}
+.sheet .editable-block[data-block="outName"] h2{cursor:grab;user-select:none;-webkit-user-select:none}
+.sheet .editable-block[data-block="outName"] h2:active{cursor:grabbing}
+.panel details.simple-section{border-top:1px solid #e4e7eb;margin-top:12px;padding-top:10px}
+.panel details.simple-section>summary{font-weight:700;cursor:pointer;padding:8px 2px;list-style-position:inside}
+.panel details.simple-section>.section-body{padding:0 2px 8px}
+.panel .inline-tools{border:0;background:#f6f7f9}
+.editor-head{padding:10px}.editor-head span{font-size:11px}
+@media(max-width:850px){main>section:nth-child(2){position:static;max-height:none}}
+
+/* V20 — interface organisée en quatre étapes, aperçu toujours visible */
+header{padding:16px 4%}header h1{font-size:22px}header p{font-size:13px;margin-top:4px}
+main{max-width:1360px;grid-template-columns:minmax(310px,390px) minmax(420px,1fr);gap:18px;margin:18px auto}
+.panel{padding:18px;align-self:start;position:sticky;top:12px;max-height:calc(100vh - 24px);overflow:auto}
+.panel>h2{font-size:18px;margin:0 0 12px}
+.v20-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;background:#eef1f5;padding:4px;border-radius:10px;margin-bottom:16px}
+.v20-tab{margin:0;padding:10px 2px;font-size:12px;border-radius:7px;background:transparent;color:#53606d;font-weight:700}
+.v20-tab[aria-selected=true]{background:#fff;color:#182b42;box-shadow:0 1px 5px #0002}
+.v20-page{display:none}.v20-page.active{display:block}
+.v20-page>h3{font-size:15px;margin:4px 0 12px}
+.v20-page label{font-size:12px;margin-top:13px}
+.v20-page input,.v20-page textarea,.v20-page select{font-size:14px}
+.v20-page .inline-tools{margin:12px 0;background:#f8f9fb;padding:10px}
+.v20-page details.advanced{border:1px solid #e2e6eb;border-radius:8px;margin:14px 0;background:#fbfcfd}
+.v20-page details.advanced summary{cursor:pointer;padding:11px 12px;font-size:12px;font-weight:700;color:#4b5968}
+.v20-page details.advanced .advanced-content{padding:0 11px 10px}
+.v20-page .customize{border:0;padding:0;margin:0}.v20-page .customize h3{display:none}
+.v20-page .preset-gallery{margin:10px 0 16px}.v20-page .preset{font-size:10px}
+.v20-page .hint{margin:8px 0 12px}
+.v20-actions{position:sticky;bottom:-18px;background:#fff;padding:13px 0 4px;border-top:1px solid #e2e6eb;margin-top:14px;z-index:12}
+.v20-actions #copyMail{width:100%;margin:0;background:#1f5d4c;font-size:14px}
+.v20-actions #copyStatus{margin:8px 0 0}
+.v20-page .v20-subhead{font-size:12px;font-weight:700;color:#607080;margin:18px 0 3px;padding-top:12px;border-top:1px solid #e5e9ed}
+.editor-head{background:#fff}.sheet{padding:26px}
+@media(max-width:850px){main{grid-template-columns:1fr}.panel{position:static;max-height:none;overflow:visible}.v20-actions{bottom:0}.sheet{padding:20px}}
+@media print{.v20-tabs,.v20-actions{display:none!important}}
+/* V21 : menu contextuel discret sur la plaquette */
+.editor-head{display:none!important}
+.sheet{position:relative}
+.floating-tools{position:absolute;top:8px;left:8px;z-index:60;margin:0;display:none;align-items:center;gap:4px;flex-wrap:nowrap;width:max-content;max-width:calc(100% - 12px);padding:5px 7px;border-radius:9px;background:#fff;box-shadow:0 5px 20px #172b4d30;border:1px solid #d9e0e9}
+.floating-tools.visible{display:flex}
+.floating-tools strong{font-size:11px;white-space:nowrap;margin-right:5px}
+.floating-tools button{padding:6px 8px;min-width:28px;line-height:1.2}
+.restore-box{margin-top:14px;border:1px solid #dfe6ee;border-radius:8px;padding:10px;background:#f7f9fb}
+.restore-box[hidden]{display:none!important}
+.restore-box label{margin:0 0 5px;display:block}
+.restore-box select{width:100%}
+@media(max-width:600px){.floating-tools strong{display:none}.floating-tools button{padding:5px 6px}}
+@media print{.floating-tools{display:none!important}}
+.v20-tab{display:flex;align-items:center;justify-content:center;gap:7px}.v22-tab-icon{font-size:17px;line-height:1;font-weight:600}.v20-tab[aria-selected="true"] .v22-tab-icon{opacity:1}@media(max-width:480px){.v20-tab{gap:4px;flex-direction:column}.v22-tab-icon{font-size:18px}}
+.contact-editor{margin-top:12px;padding:12px;border:1px solid #dbe2ec;border-radius:10px;background:#f8fafc;display:flex;gap:8px;flex-wrap:wrap;align-items:end}.contact-editor[hidden]{display:none!important}.contact-editor label{font-size:11px;margin:0;flex:1;min-width:90px}.contact-editor select,.contact-editor input{padding:6px;margin-top:4px}.contact-editor button{margin:0;padding:9px;font-size:12px}.contact-editor button.on{background:#4f63a8}#outLinks{margin-top:6px;margin-bottom:6px}#outEmail,#outPhone{margin:4px 0}#contactHeading{display:block;margin-top:18px;padding-top:14px;border-top:1px solid #d9dce0}.editable-block:has(#outLinks:empty),.editable-block:has(#outEmail:empty),.editable-block:has(#outPhone:empty){display:none!important}
+/* V24 : aérer les contacts même lorsque tous les réseaux sont renseignés. */
+#outLinks.social-icons{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));column-gap:20px;row-gap:17px;max-width:650px;width:100%;margin:12px auto 14px;align-items:center}
+#outLinks.social-icons a{display:inline-flex;align-items:center;gap:9px;min-width:0;white-space:nowrap;line-height:1.5}
+#outLinks.social-icons svg{flex:0 0 25px;width:25px;height:25px}
+#contactHeading{margin-top:24px;padding-top:20px;margin-bottom:14px;line-height:1.5}
+#outEmail,#outPhone{line-height:1.65;margin:10px 0}
+.editable-block:has(#outLinks){margin-bottom:15px}
+.editable-block:has(#outEmail){margin-bottom:8px}
+@media(max-width:560px){#outLinks.social-icons{grid-template-columns:repeat(auto-fit,minmax(125px,1fr));column-gap:12px;row-gap:15px}}
+</style></head><body><header><h1>Ma plaquette musicien</h1><p>Crée une présentation à coller directement dans Gmail. Gratuit, sans compte.</p></header><main><section class="panel"><h2>Personnaliser</h2><label for="name">Nom du projet</label><input id="name" value="Mon projet musical"><div class="inline-tools"><span class="tools-label">Style du titre</span><div class="tool-grid"><label>Police<select id="titleFont"><option value="Arial,Helvetica,sans-serif">Arial</option><option value="Georgia,serif">Georgia</option><option value="Verdana,Geneva,sans-serif">Verdana</option><option value="Tahoma,sans-serif">Tahoma</option></select></label><label>Taille<select id="titleSize"><option value="24">Petite</option><option value="30" selected>Normale</option><option value="36">Grande</option><option value="42">Très grande</option></select></label><label>Couleur<input id="titleColor" type="color" value="#20252b"></label><label>Alignement<select id="titleAlign"><option value="left">Gauche</option><option value="center">Centré</option><option value="right">Droite</option></select></label></div></div><label for="format">Formation / style</label><input id="format" value="Guitare-chant · Reprises acoustiques"><label for="events">Prestations proposées</label><input id="events" value="Bars · Restaurants · Mariages · Événements privés"><label for="desc">Présentation courte</label><textarea id="desc">Une prestation musicale chaleureuse et adaptée à l'ambiance de votre événement.</textarea><div class="inline-tools"><span class="tools-label">Style de la présentation</span><div class="tool-grid"><label>Police<select id="fontFamily"><option value="Arial,Helvetica,sans-serif">Arial</option><option value="Georgia,serif">Georgia</option><option value="Verdana,Geneva,sans-serif">Verdana</option><option value="Tahoma,sans-serif">Tahoma</option><option value="Trebuchet MS,Arial,sans-serif">Trebuchet MS</option></select></label><label>Taille<select id="fontSize"><option value="14">Petite</option><option value="15" selected>Normale</option><option value="17">Grande</option><option value="19">Très grande</option></select></label><label>Couleur<input id="textColor" type="color" value="#20252b"></label><label>Alignement<select id="textAlign"><option value="left">Gauche</option><option value="center">Centré</option><option value="right">Droite</option></select></label></div><p class="hint">Pour mettre quelques mots en forme, sélectionne-les directement dans l'aperçu à droite, puis clique sur un bouton ci-dessous.</p><div class="format-buttons"><button type="button" id="boldText">Gras</button><button type="button" id="italicText"><i>Italique</i></button><button type="button" id="underlineText"><u>Souligné</u></button><button type="button" id="resetText">Effacer</button></div></div><label for="logo">Logo du projet (PNG, JPG, SVG)</label><input type="file" id="logo" accept="image/png,image/jpeg,image/svg+xml,image/webp"><div class="logo-size-row"><label for="logoSize">Taille du logo</label><input id="logoSize" type="range" min="60" max="420" value="180"><output id="logoSizeOutput">180 px</output></div><p class="hint">Le logo peut être déplacé et masqué dans la plaquette.</p><label for="photo">Photo (sur ton appareil)</label><input type="file" id="photo" accept="image/*"><p class="hint">La photo s’adapte automatiquement à sa taille et reste entière, sans recadrage ni bandes sur les côtés.</p><label for="instagram">Instagram</label><input id="instagram" type="url" placeholder="https://www.instagram.com/..."><label for="facebook">Facebook</label><input id="facebook" type="url" placeholder="https://www.facebook.com/..."><label for="youtube1">Vidéo de démonstration YouTube</label><input id="youtube1" type="url" placeholder="https://www.youtube.com/watch?v=..."><p class="hint">La vignette sera cliquable dans la présentation collée dans Gmail.</p><label for="youtubeChannel">Chaîne YouTube <span class="optional">(facultative)</span></label><input id="youtubeChannel" type="url" placeholder="https://www.youtube.com/@..."><label for="tiktok">TikTok <span class="optional">(facultatif)</span></label><input id="tiktok" type="url" placeholder="https://www.tiktok.com/@..."><label for="soundcloud">SoundCloud <span class="optional">(facultatif)</span></label><input id="soundcloud" type="url" placeholder="https://soundcloud.com/..."><label for="spotify">Spotify <span class="optional">(facultatif)</span></label><input id="spotify" type="url" placeholder="https://open.spotify.com/artist/..."><label for="deezer">Deezer <span class="optional">(facultatif)</span></label><input id="deezer" type="url" placeholder="https://www.deezer.com/artist/..."><label for="website">Site web <span class="optional">(facultatif)</span></label><input id="website" type="url" placeholder="https://..."><label for="email">E-mail professionnel</label><input id="email" type="email" placeholder="contact@exemple.fr"><label for="phone">Téléphone (facultatif)</label><input id="phone" placeholder="06..."><div class="customize"><h3>Ambiance visuelle</h3><p class="hint">Choisis un style : le résultat apparaît immédiatement à droite.</p><div class="preset-gallery" id="presetGallery" role="group" aria-label="Styles de fond"><button type="button" class="preset active" data-preset="clean"><span class="swatch clean"></span>Épuré</button><button type="button" class="preset" data-preset="sand"><span class="swatch sand"></span>Sable</button><button type="button" class="preset" data-preset="night"><span class="swatch night"></span>Nuit</button><button type="button" class="preset" data-preset="sunset"><span class="swatch sunset"></span>Sunset</button><button type="button" class="preset" data-preset="ocean"><span class="swatch ocean"></span>Océan</button><button type="button" class="preset" data-preset="forest"><span class="swatch forest"></span>Forêt</button><button type="button" class="preset" data-preset="paper"><span class="swatch paper"></span>Papier</button><button type="button" class="preset" data-preset="grid"><span class="swatch gridstyle"></span>Quadrillage</button><button type="button" class="preset" data-preset="dots"><span class="swatch dotstyle"></span>Confettis</button><button type="button" class="preset" data-preset="aurora"><span class="swatch aurora"></span>Aurore</button></div><div class="twocol"><div><label for="backgroundColor">Couleur personnalisée</label><input id="backgroundColor" type="color" value="#ffffff"></div><div><label for="texture">Motif supplémentaire</label><select id="texture"><option value="none">Aucun</option><option value="dots">Petits points</option><option value="lines">Lignes</option><option value="grid">Quadrillage</option></select></div></div><p class="hint">Dans Gmail, les dégradés et motifs peuvent disparaître : une couleur unie assortie est prévue pour préserver la lisibilité.</p></div><button id="copyMail" type="button">Copier ma présentation pour Gmail</button><p class="hint" id="copyStatus" role="status" aria-live="polite">Colle ensuite dans un nouveau message Gmail (Ctrl + V). Vérifie le rendu avant envoi.</p><p class="hint">Les données restent dans ton navigateur : elles ne sont pas envoyées à un serveur.</p></section><section><article class="sheet" id="sheet"><div class="layout-guide" id="layoutGuide"></div><div id="outLogo" class="logo-preview" hidden><img id="logoImg" alt="Logo du projet"></div><div class="photo-frame" id="photoFrame"><img id="outPhoto" alt="Photo du projet"></div><div class="tag" id="eyebrow">PRÉSENTATION MUSICALE</div><h2 id="outName">Mon projet musical</h2><p id="outFormat"></p><p class="tag" id="outEvents"></p><p class="description" id="outDesc" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Présentation courte mise en forme"></p><div class="video-preview" id="videoPreview" hidden><a id="videoLink" href="#" target="_blank" rel="noopener noreferrer" aria-label="Regarder la vidéo de démonstration sur YouTube"><div class="video-art" id="videoArt"><img id="videoThumb" alt="Vignette de la vidéo de démonstration" hidden><span class="play-icon" aria-hidden="true">▶</span></div></a></div><div class="contacts" id="contacts"><strong>LIENS & CONTACT</strong><div class="social-icons" id="outLinks"></div><div id="outEmail"></div><div id="outPhone"></div></div></article></section></main><script>
+const fields=['name','format','events','desc','instagram','facebook','youtube1','youtubeChannel','tiktok','soundcloud','spotify','deezer','website','email','phone'];
+const $=id=>document.getElementById(id);
+function put(id,value){const el=$('out'+id[0].toUpperCase()+id.slice(1));el.textContent=value;el.hidden=!String(value).trim()}
+function validURL(v){try{const u=new URL(v);return ['https:','http:'].includes(u.protocol)?u.href:null}catch{return null}}
+const icons={
+ instagram:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="6.5" r="1.3" fill="currentColor"/></svg>',
+ facebook:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" fill="#1877F2"/><path d="M14.2 21v-7.4h2.5l.4-3h-2.9V8.7c0-.9.3-1.5 1.6-1.5h1.5V4.5a18 18 0 0 0-2.2-.1c-2.2 0-3.7 1.4-3.7 4v2.2H9v3h2.4V21z" fill="white"/></svg>',
+ youtube:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="5" fill="#FF0033"/><path d="m10 8 6 4-6 4z" fill="white"/></svg>',
+ tiktok:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M14 2h3c.3 3 2 4.5 5 4.7v3.1c-2.1 0-3.8-.6-5-1.7V16a7 7 0 1 1-7-7v3.4a3.6 3.6 0 1 0 3.6 3.6V2z"/></svg>',
+ soundcloud:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M10 7a6 6 0 0 1 10.5 4.2A4.4 4.4 0 0 1 20 20H9V8zM3 12h1v8H3zm3-3h1v11H6z"/></svg>',
+ spotify:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#1DB954"/><path d="M5 9c5-2 10-1 14 1M6 13c4-1.5 9-.7 12 1M7 17c3-1 7-.4 10 1" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg>',
+ deezer:'<svg viewBox="0 0 24 24"><path fill="currentColor" d="M2 17h4v4H2zm0-5h4v4H2zm5 5h4v4H7zm0-10h4v9H7zm5 10h4v4h-4zm0-7h4v6h-4zm5 7h5v4h-5zm0-12h5v11h-5z"/></svg>',
+ website:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c-5 5-5 13 0 18M12 3c5 5 5 13 0 18" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>'
+};
+function addIcon(box,id,kind,label){const url=validURL($(id).value.trim());if(!url)return;const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.title=label;a.setAttribute('aria-label',label);a.innerHTML=icons[kind]+'<span>'+label+'</span>';box.append(a)}
+function youtubeId(raw){
+ const url=validURL(raw);if(!url)return null;
+ try{const u=new URL(url),host=u.hostname.toLowerCase().replace(/^www\./,'').replace(/^m\./,'');let id=null;
+ if(host==='youtu.be')id=u.pathname.split('/')[1];
+ else if(host==='youtube.com'||host==='youtube-nocookie.com'){
+  if(u.pathname==='/watch')id=u.searchParams.get('v');
+  else if(/^\/(shorts|embed|live)\//.test(u.pathname))id=u.pathname.split('/')[2];
+ }
+ return id&&/^[a-zA-Z0-9_-]{11}$/.test(id)?id:null;
+ }catch{return null}
+}
+function updateVideo(){
+ const raw=$('youtube1').value.trim(),id=youtubeId(raw),preview=$('videoPreview'),thumb=$('videoThumb');
+ preview.hidden=!id;
+ if(!id){thumb.hidden=true;thumb.removeAttribute('src');return}
+ $('videoLink').href='https://www.youtube.com/watch?v='+encodeURIComponent(id);
+ const next='https://i.ytimg.com/vi/'+encodeURIComponent(id)+'/hqdefault.jpg';
+ if(thumb.src!==next)thumb.src=next;
+ thumb.hidden=false;
+}
+let lastDescSource=$('desc').value;function refresh(){for(const id of ['name','format','events'])put(id,$(id).value);if($('desc').value!==lastDescSource){put('desc',$('desc').value);lastDescSource=$('desc').value};$('eyebrow').hidden=!['name','format','events','desc'].some(k=>$(k).value.trim());const box=$('outLinks');box.replaceChildren();addIcon(box,'instagram','instagram','Instagram');addIcon(box,'facebook','facebook','Facebook');addIcon(box,'youtubeChannel','youtube','YouTube');addIcon(box,'tiktok','tiktok','TikTok');addIcon(box,'soundcloud','soundcloud','SoundCloud');addIcon(box,'spotify','spotify','Spotify');addIcon(box,'deezer','deezer','Deezer');updateVideo();addIcon(box,'website','website','Site web');const email=$('outEmail');email.replaceChildren();const v=$('email').value.trim();if(v){const a=document.createElement('a');a.textContent='E-mail : '+v;a.href='mailto:'+v;email.append(a)}put('phone',$('phone').value?'Téléphone : '+$('phone').value:'');styleAllContacts()}
+fields.forEach(id=>$(id).addEventListener('input',refresh));
+function safeColor(v){return /^#[0-9a-fA-F]{6}$/.test(v)?v:'#20252b'}
+function safeFont(){return $('fontFamily').value}
+function safeAlign(){return ['left','center','right'].includes($('textAlign').value)?$('textAlign').value:'left'}
+const presets={clean:{base:'#ffffff',ink:'#20252b',title:'#20252b',bg:'none'},sand:{base:'#f3e6ce',ink:'#3e352c',title:'#3e352c',bg:'none'},night:{base:'#25324a',ink:'#f5f7ff',title:'#ffffff',bg:'linear-gradient(135deg,#131c30,#455472)'},sunset:{base:'#ffe4c8',ink:'#503b45',title:'#503b45',bg:'linear-gradient(135deg,#ffe4c8,#f5a8a3)'},ocean:{base:'#d6f2f0',ink:'#183c4a',title:'#183c4a',bg:'linear-gradient(135deg,#d6f2f0,#8ec9e6)'},forest:{base:'#d7e6d5',ink:'#264432',title:'#264432',bg:'linear-gradient(135deg,#d7e6d5,#9db9a3)'},paper:{base:'#f9f4e9',ink:'#443b30',title:'#443b30',bg:'repeating-linear-gradient(0deg,#f9f4e9 0 14px,#f1eada 15px)'},grid:{base:'#f6f7fa',ink:'#25324a',title:'#25324a',bg:'none'},dots:{base:'#fff1e8',ink:'#533b3b',title:'#533b3b',bg:'none'},aurora:{base:'#e4d8f0',ink:'#343050',title:'#343050',bg:'linear-gradient(135deg,#c9f3ed,#d5c4f3,#f9d2e5)'}};
+let selectedPreset='clean';
+function applyAppearance(){const el=$('sheet'),preset=presets[selectedPreset];el.style.backgroundColor=safeColor($('backgroundColor').value);el.style.backgroundImage=preset.bg==='none'?'none':preset.bg;el.style.color=safeColor($('textColor').value);el.style.fontFamily=safeFont();el.classList.toggle('theme-dots',$('texture').value==='dots'||selectedPreset==='dots');el.classList.toggle('theme-lines',$('texture').value==='lines');el.classList.toggle('theme-grid',$('texture').value==='grid'||selectedPreset==='grid');const title=$('outName');title.style.textAlign=(title.closest('.editable-block')?.dataset.align||$('titleAlign').value);styleAllContacts()}
+$('presetGallery').addEventListener('click',e=>{const button=e.target.closest('[data-preset]');if(!button)return;selectedPreset=button.dataset.preset;const p=presets[selectedPreset];$('backgroundColor').value=p.base;$('textColor').value=p.ink;$('titleColor').value=p.title;$('texture').value='none';document.querySelectorAll('.preset').forEach(b=>{b.classList.toggle('active',b===button);b.setAttribute('aria-pressed',String(b===button))});applyAppearance()});
+$('backgroundColor').addEventListener('input',()=>{selectedPreset='clean';document.querySelectorAll('.preset').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false')});applyAppearance()});
+['fontFamily','fontSize','textColor','textAlign','texture','titleFont','titleSize','titleColor','titleAlign'].forEach(id=>$(id).addEventListener('input',applyAppearance));
+// Sélection de texte : styles riches simples, sans dépendance externe.
+function formatSelection(command){$('outDesc').focus();try{document.execCommand(command,false,null)}catch(e){console.warn(e)}}
+$('boldText').addEventListener('mousedown',e=>e.preventDefault());
+$('italicText').addEventListener('mousedown',e=>e.preventDefault());
+$('underlineText').addEventListener('mousedown',e=>e.preventDefault());
+$('boldText').addEventListener('click',()=>formatSelection('bold'));
+$('italicText').addEventListener('click',()=>formatSelection('italic'));
+$('underlineText').addEventListener('click',()=>formatSelection('underline'));
+$('resetText').addEventListener('click',()=>formatSelection('removeFormat'));
+$('outDesc').addEventListener('input',()=>{$('desc').value=$('outDesc').innerText;lastDescSource=$('desc').value});
+
+let photoURL=null, photoData=null;
+$('photo').addEventListener('change',e=>{
+ const f=e.target.files[0];
+ if(photoURL){URL.revokeObjectURL(photoURL);photoURL=null}
+ if(!f){photoData=null;$('outPhoto').removeAttribute('src');$('photoFrame').classList.remove('has-photo');return}
+ photoURL=URL.createObjectURL(f);
+ $('outPhoto').src=photoURL;
+ $('photoFrame').classList.add('has-photo');
+ const reader=new FileReader();reader.onload=()=>{photoData=reader.result};reader.readAsDataURL(f);
+});
+function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function linkOrEmpty(id){return validURL($(id).value.trim())}
+function cleanRichText(source){const allowed=new Set(['B','STRONG','I','EM','U','BR','DIV','P','SPAN']);function walk(n){if(n.nodeType===Node.TEXT_NODE)return esc(n.textContent);if(n.nodeType!==Node.ELEMENT_NODE)return '';const content=[...n.childNodes].map(walk).join('');if(!allowed.has(n.tagName))return content;const t=n.tagName.toLowerCase();if(t==='br')return '<br>';if(t==='div'||t==='p')return content+'<br>';if(t==='span')return content;return '<'+t+'>'+content+'</'+t+'>'}return [...source.childNodes].map(walk).join('')}
+
+// V16 : sélection contextuelle et réorganisation sans commandes dans la plaquette.
+const blockIds=['outLogo','photoFrame','eyebrow','outName','outFormat','outEvents','outDesc','videoPreview','contactHeading','outLinks','outEmail','outPhone'];
+const blockLabels=['Logo','Photo','En-tête','Titre','Formation','Prestations','Présentation','Vidéo','En-tête contacts','Réseaux sociaux','Adresse e-mail','Téléphone'];
+const hiddenBlocks=new Set();
+let logoData=null;
+const sheet=$('sheet');
+// Séparer les lignes du pied de plaquette pour les déplacer et styliser indépendamment.
+const contactRoot=$('contacts');
+const heading=document.createElement('strong');heading.id='contactHeading';heading.textContent='LIENS & CONTACT';
+contactRoot.querySelector('strong').replaceWith(heading);
+const footerItems=[heading,$('outLinks'),$('outEmail'),$('outPhone')];
+footerItems.forEach(n=>sheet.append(n));contactRoot.remove();
+const contactStyles={};
+const contactIds=['contactHeading','outLinks','outEmail','outPhone'];
+const textIds=['eyebrow','outName','outFormat','outEvents','outDesc',...contactIds];
+textIds.forEach(id=>contactStyles[id]={font:'Arial,Helvetica,sans-serif',size:({eyebrow:11,outName:30,outFormat:16,outEvents:12,outDesc:15,contactHeading:13}[id]||14),color:({eyebrow:'#707780',outEvents:'#666e77'}[id]||'#20252b'),bold:['eyebrow','outName','outEvents','contactHeading'].includes(id),italic:false});
+function styleContact(id){const el=$(id),st=contactStyles[id];if(!el||!st)return;el.style.fontFamily=st.font;el.style.fontSize=st.size+'px';el.style.color=st.color;el.style.fontWeight=st.bold?'bold':'normal';el.style.fontStyle=st.italic?'italic':'normal';el.querySelectorAll('a').forEach(a=>{a.style.color=st.color;a.style.fontFamily=st.font;a.style.fontSize=st.size+'px';a.style.fontWeight=st.bold?'bold':'normal';a.style.fontStyle=st.italic?'italic':'normal'})}
+function styleAllContacts(){textIds.forEach(styleContact)}
+
+const contactEditor=document.createElement('div');contactEditor.className='contact-editor';contactEditor.hidden=true;
+contactEditor.innerHTML='<strong style="grid-column:1/-1">Style de l’élément sélectionné</strong><label>Police <select id="lineFont"><option value="Arial,Helvetica,sans-serif">Arial</option><option value="Georgia,serif">Georgia</option><option value="Verdana,Geneva,sans-serif">Verdana</option><option value="Tahoma,sans-serif">Tahoma</option></select></label><label>Taille <select id="lineSize"><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="16">16</option><option value="18">18</option><option value="20">20</option><option value="24">24</option><option value="30">30</option><option value="36">36</option><option value="42">42</option></select></label><label>Couleur <input type="color" id="lineColor"></label><button type="button" id="lineBold">Gras</button><button type="button" id="lineItalic">Italique</button>';
+document.querySelector('.panel').append(contactEditor);
+function updateLineEditor(){const id=selected?.dataset.block;contactEditor.hidden=!textIds.includes(id);if(contactEditor.hidden)return;const st=contactStyles[id];$('lineFont').value=st.font;$('lineSize').value=String(st.size);$('lineColor').value=st.color;$('lineBold').classList.toggle('on',st.bold);$('lineItalic').classList.toggle('on',st.italic)}
+['lineFont','lineSize','lineColor'].forEach(id=>contactEditor.querySelector('#'+id).addEventListener('input',()=>{const key=selected?.dataset.block;if(!contactStyles[key])return;const st=contactStyles[key];st.font=$('lineFont').value;st.size=Number($('lineSize').value);st.color=$('lineColor').value;styleContact(key)}));
+$('lineBold').addEventListener('click',()=>{const key=selected?.dataset.block;if(!contactStyles[key])return;contactStyles[key].bold=!contactStyles[key].bold;styleContact(key);updateLineEditor()});
+$('lineItalic').addEventListener('click',()=>{const key=selected?.dataset.block;if(!contactStyles[key])return;contactStyles[key].italic=!contactStyles[key].italic;styleContact(key);updateLineEditor()});
+const tools=document.createElement('div');tools.className='floating-tools';tools.innerHTML='<strong id="selectedLabel">Élément</strong><button type="button" data-align="left" title="Aligner à gauche">⇤</button><button type="button" data-align="center" title="Centrer">≡</button><button type="button" data-align="right" title="Aligner à droite">⇥</button><button type="button" id="hideSelected">Masquer</button><button type="button" id="deselect">✕</button>';
+sheet.append(tools);
+let selected=null,dragged=null;
+function placeTools(){if(!selected)return;const sr=sheet.getBoundingClientRect(),r=selected.getBoundingClientRect();tools.style.top=Math.max(6,r.top-sr.top-48)+'px';tools.style.left=Math.max(6,Math.min(r.left-sr.left,Math.max(6,sheet.clientWidth-tools.offsetWidth-12)))+'px'}
+function selectBlock(wrapper){if(selected)selected.classList.remove('selected');selected=wrapper;if(wrapper){wrapper.classList.add('selected');$('selectedLabel').textContent=blockLabels[blockIds.indexOf(wrapper.dataset.block)];tools.classList.add('visible');placeTools()}else tools.classList.remove('visible');updateLineEditor()}
+window.addEventListener('resize',placeTools);
+function moveSelected(dir){if(!selected)return;const blocks=[...sheet.querySelectorAll('.editable-block')],i=blocks.indexOf(selected),other=blocks[i+dir];if(!other)return;if(dir<0)sheet.insertBefore(selected,other);else sheet.insertBefore(other,selected)}
+blockIds.forEach(id=>{const node=$(id),wrapper=document.createElement('div');wrapper.className='editable-block';wrapper.dataset.block=id;wrapper.draggable=true;wrapper.addEventListener('dragstart',e=>{if(e.target.closest('a,button,input,textarea,[contenteditable=true]')){e.preventDefault();return}dragged=wrapper;selectBlock(wrapper);wrapper.classList.add('is-dragging');sheet.classList.add('drag-active');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',id)});wrapper.addEventListener('dragend',()=>{wrapper.classList.remove('is-dragging');dragged=null;sheet.classList.remove('drag-active');sheet.querySelectorAll('.drop-before,.drop-after').forEach(el=>el.classList.remove('drop-before','drop-after'))});const content=document.createElement('div');content.className='block-content';node.parentNode.insertBefore(wrapper,node);content.append(node);wrapper.append(content);wrapper.addEventListener('click',e=>{e.stopPropagation();selectBlock(wrapper)});wrapper.addEventListener('dragover',e=>{if(!dragged||dragged===wrapper)return;e.preventDefault();wrapper.classList.toggle('drop-before',e.clientY<wrapper.getBoundingClientRect().top+wrapper.offsetHeight/2);wrapper.classList.toggle('drop-after',!wrapper.classList.contains('drop-before'))});wrapper.addEventListener('dragleave',()=>wrapper.classList.remove('drop-before','drop-after'));wrapper.addEventListener('drop',e=>{e.preventDefault();wrapper.classList.remove('drop-before','drop-after');if(!dragged||dragged===wrapper)return;sheet.insertBefore(dragged,e.clientY<wrapper.getBoundingClientRect().top+wrapper.offsetHeight/2?wrapper:wrapper.nextSibling);placeTools()})});
+tools.querySelectorAll('[data-align]').forEach(btn=>btn.addEventListener('click',()=>{if(!selected)return;selected.dataset.align=btn.dataset.align;selected.querySelector('.block-content').style.textAlign=btn.dataset.align;const photo=selected.querySelector('.photo-frame');if(photo)photo.style.justifyContent=btn.dataset.align==='left'?'flex-start':btn.dataset.align==='right'?'flex-end':'center';const logo=selected.querySelector('.logo-preview');if(logo)logo.style.textAlign=btn.dataset.align;const title=selected.querySelector('#outName');if(title)title.style.textAlign=btn.dataset.align;const video=selected.querySelector('.video-preview');if(video)video.style.textAlign=btn.dataset.align}));
+$('hideSelected').addEventListener('click',()=>{if(!selected)return;hiddenBlocks.add(selected.dataset.block);selected.classList.add('is-hidden');selectBlock(null);updateRestore()});
+$('deselect').addEventListener('click',()=>selectBlock(null));
+
+
+// La restauration est discrète et apparaît seulement après un masquage.
+const restoreBox=document.createElement('div');restoreBox.className='restore-box';restoreBox.hidden=true;
+const restoreTitle=document.createElement('label');restoreTitle.textContent='Éléments masqués';restoreTitle.setAttribute('for','restoreBlock');
+const showHidden=document.createElement('select');showHidden.id='restoreBlock';showHidden.setAttribute('aria-label','Réafficher un élément');
+function updateRestore(){restoreBox.hidden=hiddenBlocks.size===0;showHidden.innerHTML='<option value="">Choisir un élément à réafficher…</option>'+blockIds.filter(id=>hiddenBlocks.has(id)).map(id=>'<option value="'+id+'">'+blockLabels[blockIds.indexOf(id)]+'</option>').join('')}
+restoreBox.append(restoreTitle,showHidden);
+showHidden.addEventListener('change',()=>{const id=showHidden.value;if(!id)return;hiddenBlocks.delete(id);sheet.querySelector('[data-block="'+id+'"]').classList.remove('is-hidden');updateRestore()});
+$('logo').addEventListener('change',e=>{const file=e.target.files[0];if(!file){logoData=null;$('outLogo').hidden=true;return}if(file.size>3*1024*1024){alert('Choisis un logo de moins de 3 Mo.');e.target.value='';return}if(!['image/png','image/jpeg','image/webp','image/svg+xml'].includes(file.type)){alert('Format non pris en charge.');return}const reader=new FileReader();reader.onload=()=>{logoData=String(reader.result);$('logoImg').src=logoData;$('outLogo').hidden=false};reader.readAsDataURL(file)});
+$('logoSize').addEventListener('input',()=>{$('logoImg').style.width=$('logoSize').value+'px';$('logoSizeOutput').textContent=$('logoSize').value+' px'});
+$('logoImg').style.width=$('logoSize').value+'px';
+function visibleBlock(id){return !hiddenBlocks.has(id)}
+function lineCss(id){const st=contactStyles[id];return 'font-family:'+st.font+';font-size:'+st.size+'px;color:'+st.color+';font-weight:'+(st.bold?'bold':'normal')+';font-style:'+(st.italic?'italic':'normal')+';'}
+function orderedRows(parts){return [...sheet.querySelectorAll('.editable-block')].map(el=>{if(!visibleBlock(el.dataset.block))return '';let html=parts[el.dataset.block]||'';const align=el.dataset.align;if(align&&html){html=html.replace(/<td style="/, '<td align="'+align+'" style="text-align:'+align+';');if(el.dataset.block==='outLogo')html=html.replace('margin:0 auto','margin:0');if(el.dataset.block==='videoPreview')html=html.replace('width:100%;max-width:480px;height:360px;', 'width:480px;max-width:100%;height:360px;');}return html}).join('')}
+function mailHtml(){
+ const name=esc($('name').value.trim()),format=esc($('format').value.trim()),events=esc($('events').value.trim()),desc=cleanRichText($('outDesc'));
+ const id=youtubeId($('youtube1').value),url=id?'https://www.youtube.com/watch?v='+id:null;
+ const textureStyle=$('texture').value==='dots'?'background-image:radial-gradient(#0000000c 1px,transparent 1px);background-size:15px 15px;':$('texture').value==='lines'?'background-image:repeating-linear-gradient(135deg,transparent 0,transparent 15px,#00000008 16px,#00000008 17px);':'';
+  const aStyle='color:'+safeColor($('textColor').value)+';font-weight:600;text-decoration:underline;';
+ // Images PNG distantes : les SVG du navigateur sont généralement supprimés par Gmail.
+ const social=[['instagram','Instagram','instagram.com'],['facebook','Facebook','facebook.com'],['youtubeChannel','YouTube','youtube.com'],['tiktok','TikTok','tiktok.com'],['soundcloud','SoundCloud','soundcloud.com'],['spotify','Spotify','spotify.com'],['deezer','Deezer','deezer.com']];
+ const linkItems=social.map(([key,label,domain])=>{
+  const u=linkOrEmpty(key);if(!u)return '';
+  const icon='https://www.google.com/s2/favicons?domain='+encodeURIComponent(domain)+'&sz=64';
+  return '<a href="'+esc(u)+'" title="'+label+'" style="display:inline-block;text-decoration:none;color:#252a30;white-space:nowrap"><img src="'+icon+'" alt="" width="24" height="24" style="display:inline-block;width:24px;height:24px;border:0;vertical-align:middle"> <span style="vertical-align:middle;font-size:13px">'+label+'</span></a>';
+ }).filter(Boolean);
+ // Groupes de quatre : plus fiables dans Gmail qu'un flexbox qui déborde.
+ const links=Array.from({length:Math.ceil(linkItems.length/4)},(_,i)=>'<div style="line-height:2.4;margin-bottom:9px">'+linkItems.slice(i*4,i*4+4).map(link=>'<span style="display:inline-block;min-width:115px;margin:0 12px 10px 0;vertical-align:middle">'+link+'</span>').join('')+'</div>').join('');
+ const site=linkOrEmpty('website');
+ const socialLinks=links+(site?'<a href="'+esc(site)+'" style="'+aStyle+'">Site web</a>':'');
+ const row=(v,style)=>v?'<tr><td style="'+style+'">'+v+'</td></tr>':'';
+ const photo=photoData?row('<img src="'+photoData+'" alt="Photo du projet" width="500" style="display:block;width:auto;max-width:100%;max-height:290px;height:auto;margin:auto;border-radius:5px">','padding:0 0 18px;text-align:center'):'';
+ // La miniature entière est un lien. Le bouton est dessiné par-dessus dans une
+ // cellule de tableau : aucun SVG ni position:absolute, souvent retirés par Gmail.
+ const thumb=id?'https://i.ytimg.com/vi/'+encodeURIComponent(id)+'/hqdefault.jpg':'';
+ const video=url?row('<a href="'+url+'" title="Regarder la prestation sur YouTube" style="display:block;text-decoration:none;border:0">'+
+  '<table role="presentation" cellpadding="0" cellspacing="0" width="480" height="360" background="'+thumb+'" style="width:100%;max-width:480px;height:360px;background-image:url(\''+thumb+'\');background-repeat:no-repeat;background-position:center;background-size:cover;border-collapse:collapse;border:0;border-radius:6px"><tbody><tr><td align="center" valign="middle" style="text-align:center;vertical-align:middle">'+
+  '<span style="display:inline-block;background:#e62117;color:#ffffff;font-family:Arial,sans-serif;font-size:28px;font-weight:bold;line-height:1;padding:14px 22px;border-radius:12px">&#9654;</span></td></tr></tbody></table></a>',
+  'padding:18px 0 12px'):'';
+ const email=$('email').value.trim(),phone=$('phone').value.trim();
+ const contactHeading=row('LIENS &amp; CONTACT',lineCss('contactHeading')+'padding-top:24px;padding-bottom:16px;border-top:1px solid #d9dce0;');
+ const contactLinks=socialLinks?row(socialLinks,lineCss('outLinks')+'padding:14px 0 20px;line-height:1.8;'):'';
+ const contactEmail=email?row('<a href="mailto:'+esc(email)+'" style="'+lineCss('outEmail')+'text-decoration:underline">'+esc(email)+'</a>',lineCss('outEmail')+'padding:10px 0;line-height:1.6;'):'';
+ const contactPhone=phone?row(esc(phone),lineCss('outPhone')+'padding:10px 0;line-height:1.6;'):'';
+ const logo=logoData?row('<img src="'+logoData+'" alt="Logo" width="'+$('logoSize').value+'" style="display:block;width:'+$('logoSize').value+'px;max-width:100%;height:auto;margin:0 auto">','padding:0 0 12px;text-align:center'):'';
+ const textRow=(id,value,extra='')=>row(value,lineCss(id)+extra);
+ const parts={outLogo:logo,photoFrame:photo,eyebrow:(name||format||events||desc?textRow('eyebrow','PRÉSENTATION MUSICALE','letter-spacing:1px;padding-bottom:8px'):''),outName:textRow('outName',name,'line-height:1.15;padding:4px 0 12px'),outFormat:textRow('outFormat',format,'padding-bottom:12px'),outEvents:textRow('outEvents',events,'letter-spacing:.7px;padding-bottom:14px'),outDesc:textRow('outDesc',desc,'line-height:1.6'),videoPreview:video,contactHeading:(socialLinks||email||phone?contactHeading:''),outLinks:contactLinks,outEmail:contactEmail,outPhone:contactPhone};
+ return '<table role="presentation" cellpadding="0" cellspacing="0" width="600" style="width:100%;max-width:600px;border-collapse:collapse;border:1px solid #e0e3e7;background:'+safeColor($('backgroundColor').value)+';'+textureStyle+'font-family:'+safeFont()+';color:'+safeColor($('textColor').value)+'"><tbody><tr><td style="padding:22px 24px"><table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tbody>'+orderedRows(parts)+'</tbody></table></td></tr></tbody></table>';
+}
+function legacyRichCopy(html){
+ // Secours pour les pages file:/// : sélectionner uniquement le HTML d'export,
+ // pas les boutons de l'éditeur. La sélection de l'utilisateur est restaurée.
+ const selection=window.getSelection();
+ const saved=[];
+ for(let i=0;i<selection.rangeCount;i++)saved.push(selection.getRangeAt(i).cloneRange());
+ const active=document.activeElement;
+ const box=document.createElement('div');
+ box.setAttribute('contenteditable','true');
+ box.setAttribute('aria-hidden','true');
+ box.style.cssText='position:fixed;left:-10000px;top:0;width:650px;opacity:0;pointer-events:none;';
+ box.innerHTML=html;
+ document.body.appendChild(box);
+ let ok=false;
+ try{
+  const range=document.createRange();range.selectNodeContents(box);
+  selection.removeAllRanges();selection.addRange(range);
+  box.focus({preventScroll:true});
+  selection.removeAllRanges();selection.addRange(range);
+  ok=document.execCommand('copy');
+ }finally{
+  box.remove();selection.removeAllRanges();
+  saved.forEach(r=>selection.addRange(r));
+  if(active&&typeof active.focus==='function')active.focus({preventScroll:true});
+ }
+ return ok;
+}
+async function copyMail(){
+ const status=$('copyStatus');
+ const html=mailHtml();
+ const plain=[ $('name').value,$('format').value,$('events').value,$('desc').value, 'Vidéo : '+($('youtube1').value||''),...['instagram','facebook','youtubeChannel','tiktok','soundcloud','spotify','deezer','website','email','phone'].map(k=>$(k).value)].filter(Boolean).join('\n');
+ let copied=false;
+ if(navigator.clipboard&&window.ClipboardItem){
+  try{
+   await navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob([plain],{type:'text/plain'})})]);
+   copied=true;
+  }catch(err){/* Le mode fichier local peut refuser cette API. */}
+ }
+ if(!copied){
+  try{copied=legacyRichCopy(html)}catch(err){copied=false}
+ }
+ if(copied){
+  status.textContent='Présentation copiée ! Colle-la dans Gmail (Ctrl + V). Vérifie le mail reçu : certaines messageries peuvent retirer les images locales ou modifier la mise en page.';
+ }else{
+  status.textContent='La copie automatique est bloquée. Utilise la copie manuelle ci-dessous.';showCopyPanel();
+ }
+}
+$('copyMail').addEventListener('click',copyMail);
+
+// V27 : copie manuelle fiable, sans sélection des commandes de l'éditeur.
+function showCopyPanel(){
+ let overlay=document.getElementById('manualCopyOverlay');
+ if(!overlay){
+  overlay=document.createElement('div');overlay.id='manualCopyOverlay';
+  overlay.style.cssText='position:fixed;inset:0;background:rgba(20,25,32,.75);z-index:99999;overflow:auto;padding:24px 12px;';
+  overlay.innerHTML='<div style="max-width:750px;margin:0 auto;background:#fff;border-radius:12px;padding:18px;color:#20252b;font:15px Arial,sans-serif"><div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap"><strong>Copier la plaquette pour Gmail</strong><button type="button" id="manualCopyClose" style="width:auto;margin:0;padding:9px 13px">Fermer</button></div><p style="font-size:14px;line-height:1.5">La présentation ci-dessous est isolée des boutons de l’éditeur. Clique sur <b>Sélectionner la plaquette</b>, puis fais <b>Ctrl + C</b>. Colle ensuite dans Gmail avec <b>Ctrl + V</b>.</p><button type="button" id="manualCopySelect" style="width:auto;margin:0 0 12px;padding:10px 14px">Sélectionner la plaquette</button><div id="manualCopyContent" contenteditable="true" spellcheck="false" style="border:1px solid #d4d9df;padding:12px;overflow:auto;max-height:65vh;background:white"></div></div>';
+  document.body.appendChild(overlay);
+  overlay.querySelector('#manualCopyClose').addEventListener('click',()=>overlay.remove());
+  overlay.querySelector('#manualCopySelect').addEventListener('click',()=>{
+   const content=overlay.querySelector('#manualCopyContent');
+   const selection=window.getSelection(),range=document.createRange();
+   range.selectNodeContents(content);selection.removeAllRanges();selection.addRange(range);
+   overlay.querySelector('#manualCopySelect').textContent='Sélection effectuée — appuie sur Ctrl + C';
+  });
+ }
+ overlay.querySelector('#manualCopyContent').innerHTML=mailHtml();
+}
+const manualButton=document.createElement('button');
+manualButton.type='button';manualButton.textContent='Copie manuelle (si le bouton ne fonctionne pas)';
+manualButton.style.cssText='background:#f1f3f6;color:#26313e;border:1px solid #ccd4dd;margin-top:8px;font-size:13px';
+manualButton.addEventListener('click',showCopyPanel);
+$('copyMail').insertAdjacentElement('afterend',manualButton);
+
+
+// Glisser directement le titre ou la vidéo, sans chercher une poignée.
+// Les autres blocs gardent le glisser-déposer natif de la V18.
+let directDrag=null;
+sheet.addEventListener('pointerdown',e=>{
+ const block=e.target.closest('.editable-block');
+ if(!block||!['outName','videoPreview','contactHeading','outLinks','outEmail','outPhone'].includes(block.dataset.block)||e.button!==0)return;
+ if(e.target.closest('button,input,textarea,[contenteditable]'))return;
+ if(e.target.closest('a'))e.preventDefault();
+ directDrag={block,startX:e.clientX,startY:e.clientY,active:false};
+});
+document.addEventListener('pointermove',e=>{
+ if(!directDrag)return;
+ const d=directDrag;
+ if(!d.active&&Math.hypot(e.clientX-d.startX,e.clientY-d.startY)<7)return;
+ if(!d.active){d.active=true;selectBlock(d.block);d.block.classList.add('is-dragging');sheet.classList.add('drag-active')}
+ const over=document.elementFromPoint(e.clientX,e.clientY)?.closest('.editable-block');
+ sheet.querySelectorAll('.drop-before,.drop-after').forEach(el=>el.classList.remove('drop-before','drop-after'));
+ if(over&&over!==d.block){const before=e.clientY<over.getBoundingClientRect().top+over.offsetHeight/2;over.classList.add(before?'drop-before':'drop-after');sheet.insertBefore(d.block,before?over:over.nextSibling);placeTools()}
+});
+document.addEventListener('pointerup',()=>{
+ if(!directDrag)return;
+ directDrag.block.classList.remove('is-dragging');sheet.classList.remove('drag-active');
+ sheet.querySelectorAll('.drop-before,.drop-after').forEach(el=>el.classList.remove('drop-before','drop-after'));
+ directDrag=null;
+});
+// Regrouper les réglages secondaires, sans enlever aucune fonction.
+(function compactPanel(){
+ const panel=document.querySelector('.panel');
+ const labels=[...panel.querySelectorAll('label')];
+ const sections=[
+  {label:'Nom du projet',title:'Identité et présentation',open:true},
+  {label:'Instagram',title:'Réseaux et plateformes',open:false},
+  {label:'E-mail professionnel',title:'Coordonnées',open:false}
+ ];
+ // Déplacer des noeuds existants préserve leurs événements.
+ const top=panel.querySelector('h2');
+ const all=[...panel.children];
+ const indices=sections.map(x=>all.findIndex(el=>el.tagName==='LABEL'&&el.textContent.trim().startsWith(x.label)));
+ const end=all.findIndex(el=>el.classList?.contains('customize'));
+ if(indices.some(i=>i<0))return;
+ sections.forEach((section,i)=>{
+  const details=document.createElement('details');details.className='simple-section';details.open=section.open;
+  const summary=document.createElement('summary');summary.textContent=section.title;
+  const body=document.createElement('div');body.className='section-body';details.append(summary,body);
+  const from=indices[i],to=i+1<indices.length?indices[i+1]:end;
+  for(const el of all.slice(from,to))body.append(el);
+  panel.insertBefore(details,panel.querySelector('.customize'));
+ });
+})();
+
+
+// V20 : nouvelle organisation visuelle uniquement ; tous les champs et traitements sont conservés.
+(function optimizeInterface(){
+ const panel=document.querySelector('.panel');
+ const identity=panel.querySelector('.simple-section');
+ const social=panel.querySelectorAll('.simple-section')[1];
+ const contact=panel.querySelectorAll('.simple-section')[2];
+ const appearance=panel.querySelector('.customize');
+ if(!identity||!social||!contact||!appearance)return;
+ const identityBody=identity.querySelector('.section-body');
+ const socialBody=social.querySelector('.section-body');
+ const contactBody=contact.querySelector('.section-body');
+ const pages={};
+ const nav=document.createElement('nav');nav.className='v20-tabs';nav.setAttribute('aria-label','Rubriques de personnalisation');
+ const defs=[['projet','♫','Projet'],['medias','▧','Médias'],['liens','↗','Liens'],['style','◉','Style']];
+ defs.forEach(([key,symbol,title],i)=>{
+  const b=document.createElement('button');b.type='button';b.className='v20-tab';b.innerHTML='<span class="v22-tab-icon" aria-hidden="true">'+symbol+'</span><span>'+title+'</span>';b.dataset.tab=key;b.setAttribute('aria-selected',String(i===0));nav.append(b);
+  const page=document.createElement('div');page.className='v20-page'+(i===0?' active':'');page.dataset.page=key;pages[key]=page;
+ });
+ panel.querySelector('h2').after(nav,...Object.values(pages));
+ const collect=(body,startId,endId)=>{
+  const children=[...body.children];const start=children.findIndex(el=>el.matches?.('label[for="'+startId+'"]'));
+  const end=endId?children.findIndex(el=>el.matches?.('label[for="'+endId+'"]')):children.length;
+  return start<0?[]:children.slice(start,end<0?children.length:end);
+ };
+ const titleTools=identityBody.querySelector('.inline-tools');
+ const bodyTools=identityBody.querySelectorAll('.inline-tools')[1];
+ const advanced=(title,nodes,target)=>{
+  const details=document.createElement('details');details.className='advanced';
+  const summary=document.createElement('summary');summary.textContent=title;
+  const content=document.createElement('div');content.className='advanced-content';nodes.forEach(n=>n&&content.append(n));
+  details.append(summary,content);target.append(details);
+ };
+ // Projet : informations indispensables, puis typographie avancée facultative.
+ collect(identityBody,'name','logo').forEach(n=>{if(n!==titleTools&&n!==bodyTools)pages.projet.append(n)});
+ titleTools.hidden=true;bodyTools.hidden=true;
+ // Médias : rassembler les trois médias dans un seul onglet.
+ collect(identityBody,'logo',null).forEach(n=>pages.medias.append(n));
+ collect(socialBody,'youtube1','youtubeChannel').forEach(n=>pages.medias.append(n));
+ // Liens : tous les réseaux et contacts, sans la vidéo déplacée.
+ [...socialBody.children].forEach(n=>pages.liens.append(n));
+ const sub=document.createElement('div');sub.className='v20-subhead';sub.textContent='Coordonnées';pages.liens.append(sub);
+ [...contactBody.children].forEach(n=>pages.liens.append(n));
+ pages.style.append(appearance);pages.style.append(restoreBox);
+ [identity,social,contact].forEach(n=>n.remove());
+ // Ne pas encombrer les onglets avec les anciennes notes redondantes.
+ const note=[...panel.children].filter(n=>n.classList?.contains('hint')&&n.id!=='copyStatus');
+ const action=document.createElement('div');action.className='v20-actions';
+ const copy=$('copyMail'),status=$('copyStatus');action.append(copy,status);
+ note.forEach(n=>{if(n.textContent.includes('Les données restent'))n.remove()});
+ panel.append(action);nav.after(contactEditor);
+ nav.addEventListener('click',e=>{
+  const b=e.target.closest('[data-tab]');if(!b)return;
+  nav.querySelectorAll('button').forEach(btn=>btn.setAttribute('aria-selected',String(btn===b)));
+  Object.entries(pages).forEach(([key,page])=>page.classList.toggle('active',key===b.dataset.tab));
+ });
+})();
+
+refresh();applyAppearance();updateRestore();
+</script></body></html>
